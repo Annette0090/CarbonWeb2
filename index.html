@@ -73,10 +73,13 @@ nav{position:sticky;top:0;left:0;right:0;z-index:200;background:var(--white);bor
 .bd:hover{background:var(--dark);transform:translateY(-2px);}
 
 /* ── HOME ── */
-.hero{background:var(--char);position:relative;overflow:hidden;padding:7rem 5vw 5rem;min-height:88vh;display:flex;align-items:center;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 80% 50%,rgba(198,139,42,.18) 0%,transparent 70%),radial-gradient(ellipse 30% 40% at 10% 80%,rgba(198,139,42,.07) 0%,transparent 60%);}
-.htx{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c68b2a' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");}
-.hi{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1200px;margin:0 auto;width:100%;}
+.hero{position:relative;overflow:hidden;padding:7rem 5vw 5rem;min-height:88vh;display:flex;align-items:center;}
+.hero-bg-img{position:absolute;inset:0;z-index:0;}
+.hero-bg-img svg{width:100%;height:100%;object-fit:cover;}
+.hero-blur{position:absolute;inset:0;z-index:1;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);}
+.hero-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(105deg,rgba(18,14,8,.92) 0%,rgba(18,14,8,.78) 45%,rgba(18,14,8,.55) 100%),radial-gradient(ellipse 50% 70% at 75% 50%,rgba(198,139,42,.22) 0%,transparent 65%);}
+.htx{display:none;}
+.hi{position:relative;z-index:3;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1200px;margin:0 auto;width:100%;}
 .hbadge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(198,139,42,.15);border:1px solid rgba(198,139,42,.35);color:var(--gold2);font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:.38rem .9rem;border-radius:20px;margin-bottom:1.6rem;opacity:0;animation:fup .7s ease .2s forwards;}
 .hbadge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold2);}
 .ht{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,5.5vw,4.6rem);font-weight:900;color:var(--white);line-height:1.04;margin-bottom:1.4rem;opacity:0;animation:fup .8s ease .35s forwards;}
@@ -105,7 +108,7 @@ nav{position:sticky;top:0;left:0;right:0;z-index:200;background:var(--white);bor
 .spg{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
 .spc{background:var(--white);padding:1.9rem 1.7rem;transition:background .25s;cursor:pointer;}
 .spc:hover{background:var(--goldp);}
-.spi{font-size:1.7rem;margin-bottom:.7rem;display:block;}
+.spi{font-family:'Bebas Neue',cursive;font-size:1.5rem;font-weight:400;letter-spacing:.08em;color:var(--gold);margin-bottom:.9rem;display:block;line-height:1;border-bottom:2px solid var(--goldb);padding-bottom:.5rem;width:fit-content;}
 .spt{font-weight:700;font-size:.88rem;color:var(--char);margin-bottom:.35rem;}
 .spd{font-size:.78rem;color:var(--muted);line-height:1.5;}
 
@@ -171,7 +174,7 @@ nav{position:sticky;top:0;left:0;right:0;z-index:200;background:var(--white);bor
 .vg{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;}
 .vc{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.9rem 1.5rem;border-top:3px solid var(--gold);transition:transform .25s,box-shadow .25s;}
 .vc:hover{transform:translateY(-4px);box-shadow:var(--sh);}
-.vi{font-size:1.9rem;margin-bottom:.9rem;}
+.vi{font-family:'Bebas Neue',cursive;font-size:2.2rem;color:var(--gold);margin-bottom:.8rem;line-height:1;letter-spacing:.05em;}
 .vt{font-weight:700;font-size:.9rem;color:var(--char);margin-bottom:.45rem;text-transform:uppercase;letter-spacing:.05em;}
 .vd{font-size:.8rem;color:var(--mid);line-height:1.6;}
 
@@ -214,10 +217,6 @@ nav{position:sticky;top:0;left:0;right:0;z-index:200;background:var(--white);bor
 .scta p{color:rgba(255,255,255,.55);margin-bottom:2rem;font-size:.93rem;}
 
 /* EVENTS */
-.efilt{background:var(--white);padding:1.8rem 5vw;border-bottom:1px solid var(--border);}
-.efii{max-width:1200px;margin:0 auto;display:flex;gap:.7rem;flex-wrap:wrap;}
-.efb{font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.45rem 1.1rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--mid);cursor:pointer;transition:all .2s;}
-.efb.act,.efb:hover{background:var(--gold);color:var(--white);border-color:var(--gold);}
 .efg{padding:4rem 5vw;background:var(--cream);}
 .efgi{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
 .efc{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;}
@@ -382,7 +381,210 @@ footer{background:var(--char);padding:4rem 5vw 2rem;}
 <div id="home" class="page active">
 
 <section class="hero">
-  <div class="htx"></div>
+  <!-- Event scene background -->
+  <div class="hero-bg-img">
+    <svg viewBox="0 0 1440 810" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;display:block;">
+      <defs>
+        <radialGradient id="spot1" cx="30%" cy="10%" r="40%"><stop offset="0%" stop-color="#c68b2a" stop-opacity=".9"/><stop offset="100%" stop-color="#1a0e05" stop-opacity="0"/></radialGradient>
+        <radialGradient id="spot2" cx="70%" cy="5%" r="35%"><stop offset="0%" stop-color="#e8a83a" stop-opacity=".7"/><stop offset="100%" stop-color="#1a0e05" stop-opacity="0"/></radialGradient>
+        <radialGradient id="spot3" cx="50%" cy="8%" r="30%"><stop offset="0%" stop-color="#fff8e0" stop-opacity=".5"/><stop offset="100%" stop-color="#1a0e05" stop-opacity="0"/></radialGradient>
+        <radialGradient id="floorGrad" cx="50%" cy="100%" r="70%"><stop offset="0%" stop-color="#c68b2a" stop-opacity=".25"/><stop offset="100%" stop-color="#0a0704" stop-opacity="0"/></radialGradient>
+        <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="softglow"><feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <!-- Deep dark background -->
+      <rect width="1440" height="810" fill="#0d0904"/>
+      <!-- Stage floor -->
+      <ellipse cx="720" cy="780" rx="900" ry="200" fill="#1a1005" opacity=".9"/>
+      <!-- Back wall / stage structure -->
+      <rect x="0" y="0" width="1440" height="400" fill="#110c04" opacity=".6"/>
+      <!-- Stage platform -->
+      <rect x="100" y="480" width="1240" height="30" rx="4" fill="#1e1508" opacity=".8"/>
+      <rect x="100" y="510" width="1240" height="280" fill="#160f05" opacity=".7"/>
+      <!-- Stage edge highlight -->
+      <rect x="100" y="478" width="1240" height="4" fill="#c68b2a" opacity=".35"/>
+      <!-- Big LED screen backdrop -->
+      <rect x="220" y="60" width="1000" height="400" rx="6" fill="#1a1208" opacity=".7"/>
+      <rect x="228" y="68" width="984" height="384" rx="4" fill="#120d05" opacity=".5"/>
+      <!-- Screen glow lines (LED effect) -->
+      <g opacity=".15">
+        <line x1="228" y1="100" x2="1212" y2="100" stroke="#c68b2a" stroke-width="1"/>
+        <line x1="228" y1="150" x2="1212" y2="150" stroke="#c68b2a" stroke-width="1"/>
+        <line x1="228" y1="200" x2="1212" y2="200" stroke="#c68b2a" stroke-width="1"/>
+        <line x1="228" y1="250" x2="1212" y2="250" stroke="#c68b2a" stroke-width="1"/>
+        <line x1="228" y1="300" x2="1212" y2="300" stroke="#c68b2a" stroke-width="1"/>
+        <line x1="228" y1="350" x2="1212" y2="350" stroke="#c68b2a" stroke-width="1"/>
+        <line x1="228" y1="400" x2="1212" y2="400" stroke="#c68b2a" stroke-width="1"/>
+        <line x1="400" y1="68" x2="400" y2="452" stroke="#c68b2a" stroke-width="1"/>
+        <line x1="600" y1="68" x2="600" y2="452" stroke="#c68b2a" stroke-width="1"/>
+        <line x1="800" y1="68" x2="800" y2="452" stroke="#c68b2a" stroke-width="1"/>
+        <line x1="1000" y1="68" x2="1000" y2="452" stroke="#c68b2a" stroke-width="1"/>
+      </g>
+      <!-- Spotlight beams from above -->
+      <polygon points="280,0 340,0 520,480 460,480" fill="url(#spot1)" opacity=".18"/>
+      <polygon points="600,0 660,0 740,480 680,480" fill="url(#spot3)" opacity=".14"/>
+      <polygon points="780,0 840,0 860,480 800,480" fill="url(#spot3)" opacity=".12"/>
+      <polygon points="1100,0 1160,0 980,480 920,480" fill="url(#spot2)" opacity=".16"/>
+      <polygon points="1300,0 1360,0 1100,480 1040,480" fill="url(#spot1)" opacity=".12"/>
+      <!-- Overhead truss structure -->
+      <rect x="0" y="22" width="1440" height="12" fill="#2a1e0a" opacity=".8"/>
+      <rect x="0" y="22" width="1440" height="2" fill="#c68b2a" opacity=".4"/>
+      <!-- Truss verticals -->
+      <g fill="#1e1508" opacity=".7">
+        <rect x="100" y="0" width="18" height="490"/>
+        <rect x="340" y="0" width="14" height="490"/>
+        <rect x="580" y="0" width="14" height="490"/>
+        <rect x="720" y="0" width="16" height="490"/>
+        <rect x="860" y="0" width="14" height="490"/>
+        <rect x="1100" y="0" width="14" height="490"/>
+        <rect x="1320" y="0" width="18" height="490"/>
+      </g>
+      <!-- Hanging lights -->
+      <g filter="url(#glow)">
+        <circle cx="180" cy="38" r="10" fill="#e8a83a" opacity=".9"/>
+        <circle cx="280" cy="38" r="8" fill="#fff8e0" opacity=".7"/>
+        <circle cx="380" cy="38" r="10" fill="#e8a83a" opacity=".85"/>
+        <circle cx="480" cy="38" r="8" fill="#c68b2a" opacity=".8"/>
+        <circle cx="580" cy="38" r="12" fill="#fff8e0" opacity=".8"/>
+        <circle cx="680" cy="38" r="8" fill="#e8a83a" opacity=".7"/>
+        <circle cx="760" cy="38" r="14" fill="#fff5cc" opacity=".9"/>
+        <circle cx="860" cy="38" r="8" fill="#e8a83a" opacity=".7"/>
+        <circle cx="960" cy="38" r="10" fill="#c68b2a" opacity=".8"/>
+        <circle cx="1060" cy="38" r="12" fill="#fff8e0" opacity=".75"/>
+        <circle cx="1160" cy="38" r="8" fill="#e8a83a" opacity=".8"/>
+        <circle cx="1260" cy="38" r="10" fill="#fff8e0" opacity=".7"/>
+        <circle cx="1360" cy="38" r="8" fill="#c68b2a" opacity=".85"/>
+      </g>
+      <!-- Spotlight halos on floor -->
+      <g opacity=".2">
+        <ellipse cx="300" cy="495" rx="90" ry="20" fill="#c68b2a"/>
+        <ellipse cx="600" cy="495" rx="70" ry="15" fill="#fff8e0"/>
+        <ellipse cx="840" cy="495" rx="80" ry="18" fill="#e8a83a"/>
+        <ellipse cx="1100" cy="495" rx="90" ry="20" fill="#c68b2a"/>
+      </g>
+      <!-- Silhouetted audience (crowd rows) -->
+      <!-- Row 1 - back -->
+      <g opacity=".35" fill="#0d0904">
+        <ellipse cx="160" cy="600" rx="22" ry="38"/>
+        <ellipse cx="220" cy="595" rx="20" ry="36"/>
+        <ellipse cx="280" cy="602" rx="22" ry="38"/>
+        <ellipse cx="340" cy="597" rx="20" ry="37"/>
+        <ellipse cx="400" cy="600" rx="22" ry="38"/>
+        <ellipse cx="460" cy="594" rx="20" ry="36"/>
+        <ellipse cx="520" cy="601" rx="21" ry="38"/>
+        <ellipse cx="580" cy="597" rx="22" ry="37"/>
+        <ellipse cx="640" cy="602" rx="20" ry="38"/>
+        <ellipse cx="700" cy="596" rx="22" ry="36"/>
+        <ellipse cx="760" cy="601" rx="20" ry="38"/>
+        <ellipse cx="820" cy="595" rx="22" ry="37"/>
+        <ellipse cx="880" cy="600" rx="20" ry="38"/>
+        <ellipse cx="940" cy="597" rx="22" ry="36"/>
+        <ellipse cx="1000" cy="602" rx="20" ry="38"/>
+        <ellipse cx="1060" cy="595" rx="22" ry="37"/>
+        <ellipse cx="1120" cy="600" rx="20" ry="38"/>
+        <ellipse cx="1180" cy="596" rx="22" ry="36"/>
+        <ellipse cx="1240" cy="601" rx="20" ry="38"/>
+        <ellipse cx="1300" cy="597" rx="22" ry="37"/>
+      </g>
+      <!-- Row 2 - mid -->
+      <g opacity=".5" fill="#100c05">
+        <ellipse cx="130" cy="660" rx="24" ry="42"/>
+        <ellipse cx="195" cy="655" rx="22" ry="40"/>
+        <ellipse cx="260" cy="662" rx="24" ry="42"/>
+        <ellipse cx="325" cy="657" rx="22" ry="41"/>
+        <ellipse cx="390" cy="660" rx="24" ry="42"/>
+        <ellipse cx="455" cy="654" rx="22" ry="40"/>
+        <ellipse cx="520" cy="661" rx="24" ry="42"/>
+        <ellipse cx="585" cy="657" rx="22" ry="41"/>
+        <ellipse cx="650" cy="662" rx="24" ry="42"/>
+        <ellipse cx="720" cy="656" rx="22" ry="40"/>
+        <ellipse cx="790" cy="661" rx="24" ry="42"/>
+        <ellipse cx="855" cy="655" rx="22" ry="41"/>
+        <ellipse cx="920" cy="660" rx="24" ry="42"/>
+        <ellipse cx="985" cy="657" rx="22" ry="40"/>
+        <ellipse cx="1050" cy="662" rx="24" ry="42"/>
+        <ellipse cx="1115" cy="655" rx="22" ry="41"/>
+        <ellipse cx="1180" cy="660" rx="24" ry="42"/>
+        <ellipse cx="1250" cy="656" rx="22" ry="40"/>
+        <ellipse cx="1315" cy="661" rx="24" ry="42"/>
+      </g>
+      <!-- Row 3 - front -->
+      <g opacity=".7" fill="#0d0904">
+        <ellipse cx="100" cy="740" rx="28" ry="50"/>
+        <ellipse cx="175" cy="734" rx="26" ry="48"/>
+        <ellipse cx="250" cy="742" rx="28" ry="50"/>
+        <ellipse cx="325" cy="736" rx="26" ry="49"/>
+        <ellipse cx="400" cy="740" rx="28" ry="50"/>
+        <ellipse cx="475" cy="734" rx="26" ry="48"/>
+        <ellipse cx="550" cy="741" rx="28" ry="50"/>
+        <ellipse cx="625" cy="737" rx="26" ry="49"/>
+        <ellipse cx="700" cy="742" rx="28" ry="50"/>
+        <ellipse cx="775" cy="735" rx="26" ry="48"/>
+        <ellipse cx="850" cy="740" rx="28" ry="50"/>
+        <ellipse cx="925" cy="736" rx="26" ry="49"/>
+        <ellipse cx="1000" cy="741" rx="28" ry="50"/>
+        <ellipse cx="1075" cy="734" rx="26" ry="48"/>
+        <ellipse cx="1150" cy="740" rx="28" ry="50"/>
+        <ellipse cx="1225" cy="737" rx="26" ry="49"/>
+        <ellipse cx="1300" cy="742" rx="28" ry="50"/>
+        <ellipse cx="1375" cy="735" rx="26" ry="48"/>
+      </g>
+      <!-- Performer silhouettes on stage -->
+      <g fill="#0e0905" opacity=".85">
+        <!-- Centre performer with mic -->
+        <ellipse cx="720" cy="436" rx="14" ry="14"/>
+        <rect x="712" y="450" width="16" height="28" rx="4"/>
+        <line x1="720" y1="464" x2="700" y2="478" stroke="#0e0905" stroke-width="6" stroke-linecap="round"/>
+        <line x1="720" y1="464" x2="740" y2="478" stroke="#0e0905" stroke-width="6" stroke-linecap="round"/>
+        <rect x="714" y="478" width="6" height="20" rx="2"/>
+        <rect x="726" y="478" width="6" height="20" rx="2"/>
+        <!-- Mic stand -->
+        <line x1="720" y1="440" x2="735" y2="420" stroke="#0e0905" stroke-width="3"/>
+        <ellipse cx="736" cy="418" rx="5" ry="7"/>
+        <!-- Left side performer -->
+        <ellipse cx="560" cy="444" rx="12" ry="12"/>
+        <rect x="553" y="456" width="14" height="26" rx="4"/>
+        <line x1="560" y1="468" x2="543" y2="480" stroke="#0e0905" stroke-width="5" stroke-linecap="round"/>
+        <line x1="560" y1="468" x2="577" y2="480" stroke="#0e0905" stroke-width="5" stroke-linecap="round"/>
+        <rect x="555" y="482" width="5" height="18" rx="2"/>
+        <rect x="565" y="482" width="5" height="18" rx="2"/>
+        <!-- Right side performer -->
+        <ellipse cx="880" cy="442" rx="12" ry="12"/>
+        <rect x="873" y="454" width="14" height="26" rx="4"/>
+        <line x1="880" y1="466" x2="863" y2="478" stroke="#0e0905" stroke-width="5" stroke-linecap="round"/>
+        <line x1="880" y1="466" x2="897" y2="478" stroke="#0e0905" stroke-width="5" stroke-linecap="round"/>
+        <rect x="875" y="480" width="5" height="18" rx="2"/>
+        <rect x="885" y="480" width="5" height="18" rx="2"/>
+      </g>
+      <!-- Performer spotlights -->
+      <g filter="url(#softglow)" opacity=".5">
+        <circle cx="720" cy="445" r="60" fill="#e8a83a" opacity=".3"/>
+        <circle cx="560" cy="452" r="45" fill="#c68b2a" opacity=".2"/>
+        <circle cx="880" cy="450" r="45" fill="#c68b2a" opacity=".2"/>
+      </g>
+      <!-- Confetti scatter -->
+      <g opacity=".4">
+        <rect x="320" y="200" width="6" height="14" rx="2" fill="#c68b2a" transform="rotate(25,323,207)"/>
+        <rect x="450" y="160" width="5" height="12" rx="2" fill="#e8a83a" transform="rotate(-15,452,166)"/>
+        <rect x="580" y="190" width="6" height="14" rx="2" fill="#fff8e0" transform="rotate(40,583,197)"/>
+        <rect x="700" y="140" width="5" height="12" rx="2" fill="#c68b2a" transform="rotate(-30,702,146)"/>
+        <rect x="850" y="170" width="6" height="14" rx="2" fill="#e8a83a" transform="rotate(20,853,177)"/>
+        <rect x="980" y="200" width="5" height="12" rx="2" fill="#fff8e0" transform="rotate(-40,982,206)"/>
+        <rect x="1100" y="155" width="6" height="14" rx="2" fill="#c68b2a" transform="rotate(35,1103,162)"/>
+        <rect x="250" y="300" width="5" height="12" rx="2" fill="#e8a83a" transform="rotate(-20,252,306)"/>
+        <rect x="400" y="280" width="6" height="14" rx="2" fill="#c68b2a" transform="rotate(15,403,287)"/>
+        <rect x="1050" y="260" width="5" height="12" rx="2" fill="#e8a83a" transform="rotate(-25,1052,266)"/>
+        <rect x="1200" y="300" width="6" height="14" rx="2" fill="#fff8e0" transform="rotate(30,1203,307)"/>
+      </g>
+      <!-- Floor glow -->
+      <ellipse cx="720" cy="510" rx="700" ry="80" fill="url(#floorGrad)" opacity=".6"/>
+      <!-- Ambient edge lighting -->
+      <rect x="0" y="0" width="60" height="810" fill="#c68b2a" opacity=".04"/>
+      <rect x="1380" y="0" width="60" height="810" fill="#c68b2a" opacity=".04"/>
+    </svg>
+  </div>
+  <div class="hero-blur"></div>
+  <div class="hero-overlay"></div>
   <div class="hi">
     <div>
       
@@ -427,12 +629,12 @@ footer{background:var(--char);padding:4rem 5vw 2rem;}
       <a class="btn bg" onclick="go('services')">All Services →</a>
     </div>
     <div class="spg">
-      <div class="spc" onclick="go('services')"><span class="spi">🏢</span><div class="spt">Agency &amp; Consultancy</div><div class="spd">Brand strategy, creative direction &amp; campaign management</div></div>
-      <div class="spc" onclick="go('services')"><span class="spi">🎭</span><div class="spt">Events Production</div><div class="spd">Award shows, corporate, festivals &amp; sporting events</div></div>
-      <div class="spc" onclick="go('services')"><span class="spi">📡</span><div class="spt">Strategic Communications</div><div class="spd">PR, media relations &amp; stakeholder engagement</div></div>
-      <div class="spc" onclick="go('services')"><span class="spi">🎬</span><div class="spt">AV Production</div><div class="spd">Video, live broadcast &amp; technical event support</div></div>
-      <div class="spc" onclick="go('services')"><span class="spi">📣</span><div class="spt">Advertising</div><div class="spd">Digital, OOH, social media &amp; print campaigns</div></div>
-      <div class="spc" onclick="go('services')"><span class="spi">🎨</span><div class="spt">Branding &amp; Design</div><div class="spd">Visual identity, collateral &amp; event branding</div></div>
+      <div class="spc" onclick="go('services')"><span class="spi">AC</span><div class="spt">Agency &amp; Consultancy</div><div class="spd">Brand strategy, creative direction &amp; campaign management</div></div>
+      <div class="spc" onclick="go('services')"><span class="spi">EP</span><div class="spt">Events Production</div><div class="spd">Award shows, corporate, festivals &amp; sporting events</div></div>
+      <div class="spc" onclick="go('services')"><span class="spi">SC</span><div class="spt">Strategic Communications</div><div class="spd">PR, media relations &amp; stakeholder engagement</div></div>
+      <div class="spc" onclick="go('services')"><span class="spi">AV</span><div class="spt">AV Production</div><div class="spd">Video, live broadcast &amp; technical event support</div></div>
+      <div class="spc" onclick="go('services')"><span class="spi">AD</span><div class="spt">Advertising</div><div class="spd">Digital, OOH, social media &amp; print campaigns</div></div>
+      <div class="spc" onclick="go('services')"><span class="spi">BD</span><div class="spt">Branding &amp; Design</div><div class="spd">Visual identity, collateral &amp; event branding</div></div>
     </div>
   </div>
 </section>
@@ -524,10 +726,10 @@ footer{background:var(--char);padding:4rem 5vw 2rem;}
       <h2 class="sh">What Drives <em>Everything</em> We Do</h2>
     </div>
     <div class="vg">
-      <div class="vc"><div class="vi">⭐</div><div class="vt">Excellence</div><div class="vd">We deliver nothing short of exceptional. Every project, every time, every detail.</div></div>
-      <div class="vc"><div class="vi">💡</div><div class="vt">Innovation</div><div class="vd">Pushing creative boundaries with every brief. We never default to the obvious.</div></div>
-      <div class="vc"><div class="vi">🤝</div><div class="vt">Integrity</div><div class="vd">Transparent, honest, accountable partnerships — from first call to final delivery.</div></div>
-      <div class="vc"><div class="vi">🌍</div><div class="vt">Impact</div><div class="vd">Creating lasting impressions that matter — for brands, audiences, and communities.</div></div>
+      <div class="vc"><div class="vi">01</div><div class="vt">Excellence</div><div class="vd">We deliver nothing short of exceptional. Every project, every time, every detail.</div></div>
+      <div class="vc"><div class="vi">02</div><div class="vt">Innovation</div><div class="vd">Pushing creative boundaries with every brief. We never default to the obvious.</div></div>
+      <div class="vc"><div class="vi">03</div><div class="vt">Integrity</div><div class="vd">Transparent, honest, accountable partnerships — from first call to final delivery.</div></div>
+      <div class="vc"><div class="vi">04</div><div class="vt">Impact</div><div class="vd">Creating lasting impressions that matter — for brands, audiences, and communities.</div></div>
     </div>
   </div>
 </section>
@@ -607,14 +809,7 @@ footer{background:var(--char);padding:4rem 5vw 2rem;}
 <div id="events" class="page">
 <section class="pb"><div class="pbi"><div class="pbe">Portfolio</div><h1>Our <em>Events</em></h1></div></section>
 
-<div class="efilt"><div class="efii">
-  <button class="efb act">All Events</button>
-  <button class="efb">Award Shows</button>
-  <button class="efb">Sports</button>
-  <button class="efb">Festivals</button>
-  <button class="efb">Corporate</button>
-  <button class="efb">Heritage</button>
-</div></div>
+
 
 <section class="efg"><div class="efgi">
   <div class="efc s2"><div class="efth ea" style="font-size:6rem;"><span style="opacity:.18;">🏆</span><div class="efov"><span class="efbadge">Flagship Production</span><span class="efrl">Producer &amp; Organiser</span></div></div><div class="efbd"><div class="efcat">Award Show · Annual</div><div class="efnm">EMY Africa Awards</div><div class="efdesc">Ghana's most celebrated entertainment awards, recognising excellence across music, film, fashion, and lifestyle in Africa. Carbon AV Ltd is the proud producer and organiser of this prestigious event, now celebrating over 10 years of African entertainment excellence.</div></div></div>
